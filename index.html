@@ -87,8 +87,7 @@
         <vue-slider ref="slider" v-model="scatterChart.layout.xaxis.range" max="10"></vue-slider>
       </div>
 
-      <trace-config :trace="scatterChart.traces[0]"></trace-config>
-      <trace-config :trace="scatterChart.traces[1]"></trace-config>      
+      <trace-config :trace="scatterChart.traces[0]"></trace-config>    
       
     </div>
 
@@ -98,6 +97,20 @@
       <scatter :chart="scatterChart"></scatter>
     </div>
   </div> 
+
+  <div class="columns module">
+  	<div class="controls column-4"> 
+      <label class="label">Nombre</label>
+      <div class="control">
+        <input class="input" type='text'  v-model="tablep.data[0].cells.values[0][0]"></input> 
+      </div>
+  	</div>
+
+    <div class="chart-container column">
+  	  <tableplt :table="tablep"></tableplt>
+    </div>
+
+  </div>
     
   
   <a href="https://medium.com/@bobthomas295/vuejs-and-plotly-js-reactive-charts-da9b3b59f2dc">Referencia</a>

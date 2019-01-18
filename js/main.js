@@ -1,98 +1,6 @@
 Vue.prototype.$eventhub = new Vue();
-/*
-Vue.component("reactive-chart", {
-  props: ["chart"],
-  template: '<div :ref="chart.uuid"></div>',
-  mounted() {
-    Plotly.plot(
-      this.$refs[this.chart.uuid], 
-      this.chart.traces, 
-      this.chart.layout
-    );
-  },
-  watch: {
-    chart: {
-      handler: function() {
-        Plotly.react(
-          this.$refs[this.chart.uuid],
-          this.chart.traces,
-          this.chart.layout
-        );
-      },
-      deep: true
-    }
-  }
-});
 
-Vue.component("reactive-chart2", {
-  props: ["chart"],
-  template: '<div :ref="chart.uuid2"></div>',
-  mounted() {
-    Plotly.plot(
-      this.$refs[this.chart.uuid2], 
-      [{
-        x: [1, 2, 3, 4, 5],
-        y: [1, 2, 4, 8, 16] 
-      }], 
-      {
-        margin: { t: 0 } 
-      } 
-    );
-  }
-  /*watch: {
-    chart: {
-      handler: function() {
-        Plotly.react(
-          this.$refs[this.chart.uuid],
-          this.chart.traces,
-          this.chart.layout
-        );
-      },
-      deep: true
-    }
-  }
-});
 
-Vue.component("reactive-chart3", {
-  props: ["chart"],
-  template: '<div :ref="chart.uuid3"></div>',
-  mounted() {
-    Plotly.plot(
-      this.$refs[this.chart.uuid3], 
-      [{
-        x: [1, 2, 3, 4, 5],
-        y: [1, 2, 4, 8, 16] 
-      }], 
-      {
-        margin: { t: 0 } 
-      } 
-    );
-  }
-});
-*/
-Vue.component("scatter", {
-  props: ["chart"],
-  template: '<div :ref="chart.uuid"></div>',
-   mounted() {
-    Plotly.plot(
-      this.$refs[this.chart.uuid], 
-      this.chart.traces, 
-      this.chart.layout
-    );
-  },
-  watch: {
-    chart: {
-      handler: function() {
-        Plotly.react(
-          this.$refs[this.chart.uuid],
-          this.chart.traces,
-          this.chart.layout
-        );
-      },
-      deep: true
-    }
-  }
-});
 
 var app = new Vue({
   el: "#app",
@@ -185,10 +93,35 @@ var app = new Vue({
           },
 
         ]
+      },
+      tablep: {
+        uuid: "5432",
+        data: [
+          {
+            type: 'table',
+            header: {
+              values: [["EXPENSES"], ["Q1"], ["Q2"], ["Q3"], ["Q4"]],
+              align: "center",
+              line: {width: 1, color: 'black'},
+              fill: {color: "grey"},
+              font: {family: "Arial", size: 12, color: "white"}
+            },
+            cells: {
+              values: [
+                ['Salaries', 'Office', 'Merchandise', 'Legal', 'TOTAL'],
+                [1200000, 20000, 80000, 2000, 12120000],
+                [1300000, 20000, 70000, 2000, 130902000],
+                [1300000, 20000, 120000, 2000, 131222000],
+                [1400000, 20000, 90000, 2000, 14102000]
+              ],
+              align: "center",
+              line: {color: "black", width: 1},
+              font: {family: "Arial", size: 11, color: ["black"]}
+            }
+          }
+        ]
       }
-    },
-    table: {
-
     }
+    
   }  
 });
